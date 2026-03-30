@@ -161,7 +161,7 @@
     }
 
     /* ═══════════════════════════════
-       VISION HERO  (NEW)
+       VISION HERO
     ═══════════════════════════════ */
     .vision-section {
       background: var(--navy-dark);
@@ -400,6 +400,49 @@
     }
 
     /* ═══════════════════════════════
+       ADD-ON ROWS
+    ═══════════════════════════════ */
+    .addon-row td {
+      background: var(--gold-pale) !important;
+      border-top: 1px dashed var(--gold-lt);
+    }
+    .addon-row:first-of-type td { border-top: 2px solid var(--gold-lt); }
+    .addon-check {
+      text-align: center !important;
+      vertical-align: middle;
+    }
+    .addon-check input[type="checkbox"] {
+      width: 17px;
+      height: 17px;
+      accent-color: var(--navy);
+      cursor: pointer;
+    }
+    .addon-label label {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .addon-tag {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #7C5C00;
+      background: #F5DA65;
+      padding: 2px 8px;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+    .addon-price { color: var(--g500) !important; }
+    .addon-row.is-selected td { background: #FFFBEB !important; }
+    .addon-row.is-selected .addon-price {
+      color: var(--navy) !important;
+      font-weight: 700;
+    }
+
+    /* ═══════════════════════════════
        TOTALS
     ═══════════════════════════════ */
     .totals {
@@ -443,7 +486,7 @@
     }
 
     /* ═══════════════════════════════
-       BADGES ROW  (NEW)
+       BADGES ROW
     ═══════════════════════════════ */
     .badges {
       display: flex;
@@ -864,7 +907,8 @@
   <input type="hidden" name="bot-field">
   <input type="hidden" name="estimate_number" value="SBR-2026-001">
   <input type="hidden" name="property" value="13014 3rd Ave NW, Seattle WA 98177">
-  <input type="hidden" name="total" value="$7,959.60">
+  <input type="hidden" name="total" id="hiddenTotal" value="$13,652.93">
+  <input type="hidden" name="addons_selected" id="addonsSelected" value="None">
   <input type="hidden" name="signature_image" id="signatureData">
   <input type="hidden" name="signed_at" id="signedAt">
 
@@ -875,7 +919,6 @@
       <div class="logo-mark">
         <div class="logo-icon">
           <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-            <!-- bathtub icon -->
             <rect x="4" y="17" width="22" height="5" rx="1.5" fill="#1B2B4B"/>
             <path d="M7 17V10C7 8.9 7.9 8 9 8H13V17" stroke="#1B2B4B" stroke-width="1.5" fill="none"/>
             <rect x="9" y="10" width="4" height="7" rx="0.5" fill="#1B2B4B" opacity="0.3"/>
@@ -965,13 +1008,13 @@
 
       <!-- Scope of Work -->
       <div class="section">
-        <div class="sec-title">Scope of Work — Labor</div>
+        <div class="sec-title">Scope of Work</div>
         <table class="items-table">
           <thead>
             <tr>
               <th style="width:36px">#</th>
               <th>Description</th>
-              <th class="col-price" style="width:120px">Labor</th>
+              <th class="col-price" style="width:120px">Amount</th>
             </tr>
           </thead>
           <tbody>
@@ -1055,32 +1098,61 @@
               <td class="col-desc">Final cleanup</td>
               <td class="col-price">$150</td>
             </tr>
+            <tr>
+              <td class="col-num">17</td>
+              <td class="col-desc">Rough-in &amp; Waterproofing materials</td>
+              <td class="col-price">$5,150</td>
+            </tr>
+            <!-- Optional Add-ons -->
+            <tr class="addon-row" id="addon-row-heated">
+              <td class="col-num addon-check">
+                <input type="checkbox" id="chk-heated" name="addon_heated_flooring" value="yes">
+              </td>
+              <td class="col-desc addon-label">
+                <label for="chk-heated">
+                  <span class="addon-tag">Optional Add-on</span>
+                  Heated flooring system
+                </label>
+              </td>
+              <td class="col-price addon-price">+ $3,750.00</td>
+            </tr>
+            <tr class="addon-row" id="addon-row-wand">
+              <td class="col-num addon-check">
+                <input type="checkbox" id="chk-wand" name="addon_handheld_wand" value="yes">
+              </td>
+              <td class="col-desc addon-label">
+                <label for="chk-wand">
+                  <span class="addon-tag">Optional Add-on</span>
+                  Hand-held shower wand
+                </label>
+              </td>
+              <td class="col-price addon-price">+ $450.00</td>
+            </tr>
           </tbody>
         </table>
 
         <div class="totals">
           <div class="tot-row subtotal">
-            <span>Subtotal (labor)</span>
-            <span>$7,200.00</span>
+            <span>Subtotal</span>
+            <span id="tot-subtotal">$12,350.00</span>
           </div>
           <div class="tot-row tax">
             <span>City of Seattle Sales Tax (10.55%)</span>
-            <span>$759.60</span>
+            <span id="tot-tax">$1,302.93</span>
           </div>
           <div class="tot-row total">
             <span class="t-label">Total</span>
-            <span class="t-amount">$7,959.60</span>
+            <span class="t-amount" id="tot-total">$13,652.93</span>
           </div>
         </div>
 
-        <p class="items-note">* Labor only. Finishing materials (tile, bathtub, vanity, fixtures, etc.) are supplied by the Client or purchased by the Service Provider and reimbursed at cost with receipts.</p>
+        <p class="items-note">* Includes labor and rough-in &amp; waterproofing materials. Finishing materials (tile, bathtub, vanity, fixtures, etc.) are supplied by the Client or purchased by the Service Provider and reimbursed at cost with receipts. Optional add-ons are selected above and reflected in the total.</p>
       </div>
 
       <!-- Project Notes & Warranty -->
       <div class="section">
         <div class="sec-title">Project Notes &amp; Warranty</div>
 
-        <!-- Warranty Badges -->
         <div class="badges">
           <div class="badge">
             <div class="badge-icon">
@@ -1172,6 +1244,12 @@
             <p><strong>Example:</strong> 46" custom vanity with countertop, cabinet, sink &amp; faucet — starting around <strong>$1,800</strong> (final price varies by specifications).</p>
           </div>
         </div>
+        <div class="attachment">
+          <div class="att-head">Attachment C — Bathtub Installation Note</div>
+          <div class="att-body">
+            <p>A standard 5-foot bathtub may not fit in the current space; expanding the area might be necessary. A follow-up visit is required to confirm.</p>
+          </div>
+        </div>
       </div>
 
     </div><!-- /doc-body -->
@@ -1244,6 +1322,43 @@
   document.getElementById('signedDate').value = today.toLocaleDateString('en-US', {
     year: 'numeric', month: 'long', day: 'numeric'
   });
+
+  // ── Add-on recalculation
+  const BASE_SUBTOTAL = 12350;
+  const TAX_RATE      = 0.1055;
+
+  function fmt(n) {
+    return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function recalc() {
+    const heatedChecked = document.getElementById('chk-heated').checked;
+    const wandChecked   = document.getElementById('chk-wand').checked;
+
+    document.getElementById('addon-row-heated').classList.toggle('is-selected', heatedChecked);
+    document.getElementById('addon-row-wand').classList.toggle('is-selected', wandChecked);
+
+    let extra = 0;
+    if (heatedChecked) extra += 3750;
+    if (wandChecked)   extra += 450;
+
+    const subtotal = BASE_SUBTOTAL + extra;
+    const tax      = subtotal * TAX_RATE;
+    const total    = subtotal + tax;
+
+    document.getElementById('tot-subtotal').textContent = fmt(subtotal);
+    document.getElementById('tot-tax').textContent      = fmt(tax);
+    document.getElementById('tot-total').textContent    = fmt(total);
+    document.getElementById('hiddenTotal').value        = fmt(total);
+
+    const addons = [];
+    if (heatedChecked) addons.push('Heated flooring (+$3,750)');
+    if (wandChecked)   addons.push('Hand-held shower wand (+$450)');
+    document.getElementById('addonsSelected').value = addons.join(', ') || 'None';
+  }
+
+  document.getElementById('chk-heated').addEventListener('change', recalc);
+  document.getElementById('chk-wand').addEventListener('change', recalc);
 
   // ── Signature Pad
   const canvas = document.getElementById('sigCanvas');
