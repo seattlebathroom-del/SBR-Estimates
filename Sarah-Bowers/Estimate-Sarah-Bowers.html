@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Estimate – Sarah Bowers | S.B.R. LLC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream:      #FAF7F3;
+      --cream-dark: #F2EDE6;
+      --cream-mid:  #EDE7DE;
+      --navy:       #1B2B4B;
+      --gold:       #C9A84C;
+      --gold-dark:  #9E7A2A;
+      --gold-pale:  #F7EFD8;
+      --warm-black: #1A1614;
+      --warm-gray:  #5C5248;
+      --border:     #DDD5C8;
+      --border-lt:  #EBE5DC;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12.5px;
+      font-weight: 400;
+      color: var(--warm-gray);
+      background: #2A2A2A;
+      padding: 40px 24px;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto 28px;
+      background: var(--cream);
+      box-shadow: 0 6px 40px rgba(0,0,0,0.45);
+      display: flex;
+      flex-direction: column;
+      min-height: 1100px;
+    }
+
+    .page-content { flex: 1; padding: 48px 60px; }
+
+    .hdr-full {
+      background: var(--cream);
+      padding: 48px 60px 36px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hdr-eyebrow {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 14px;
+    }
+
+    .hdr-company {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 46px;
+      font-weight: 300;
+      color: var(--navy);
+      letter-spacing: 2px;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    .hdr-company em { font-style: italic; color: var(--gold-dark); }
+
+    .hdr-rule {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .hdr-rule-line { flex: 1; max-width: 160px; height: 1px; background: var(--border); }
+    .hdr-rule-diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+
+    .hdr-tagline {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      opacity: 0.6;
+    }
+
+    .hdr-strip {
+      background: var(--navy);
+      padding: 15px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hdr-strip-item { text-align: center; }
+
+    .hdr-strip-label {
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 4px;
+    }
+
+    .hdr-strip-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--cream);
+      letter-spacing: 0.5px;
+    }
+
+    .hdr-strip-sep { width: 1px; height: 32px; background: rgba(255,255,255,0.1); }
+
+    .hdr-running {
+      padding: 20px 60px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: none;
+    }
+
+    .hdr-running-company {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--navy);
+      letter-spacing: 1px;
+    }
+
+    .hdr-running-company em { font-style: italic; color: var(--gold-dark); }
+
+    .hdr-running-meta {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #AEA49A;
+    }
+
+    .hdr-running-rule {
+      margin: 10px 60px 0;
+      height: 1px;
+      background: var(--border-lt);
+    }
+
+    .page-footer {
+      padding: 14px 60px;
+      border-top: 1px solid var(--border-lt);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--cream);
+    }
+
+    .page-footer-left {
+      font-size: 9.5px;
+      color: #AEA49A;
+      letter-spacing: 0.5px;
+    }
+
+    .page-footer-center {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #C8BFB5;
+    }
+
+    .page-footer-right {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      color: #AEA49A;
+    }
+
+    .client-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border-lt);
+      border: 1px solid var(--border-lt);
+      margin-bottom: 36px;
+    }
+
+    .client-cell { background: var(--cream); padding: 22px 26px; }
+    .client-cell + .client-cell { border-left: 1px solid var(--border-lt); }
+
+    .client-cell-label {
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 8px;
+    }
+
+    .client-cell-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .client-cell p { font-size: 12px; color: var(--warm-gray); line-height: 1.7; }
+    .client-cell p em { font-style: normal; font-size: 11px; color: #AEA49A; }
+
+    .notice {
+      background: var(--gold-pale);
+      border: 1px solid #DFC98A;
+      padding: 13px 18px;
+      margin-bottom: 36px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .notice-mark { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--gold-dark); flex-shrink: 0; line-height: 1.3; }
+    .notice p { font-size: 11.5px; color: #6B4E00; line-height: 1.65; }
+
+    .section { margin-bottom: 36px; }
+
+    .sec-head {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .sec-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      color: var(--gold);
+      letter-spacing: 1px;
+      flex-shrink: 0;
+    }
+
+    .sec-title-wrap { flex: 1; border-bottom: 1px solid var(--border-lt); padding-bottom: 9px; }
+
+    .sec-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--navy);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .sec-sub {
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #AEA49A;
+      margin-top: 3px;
+    }
+
+    table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+
+    thead th {
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #AEA49A;
+      padding: 0 0 10px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+
+    thead th:last-child { text-align: right; }
+    tbody tr { border-bottom: 1px solid var(--border-lt); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody td { padding: 12px 0; vertical-align: top; }
+
+    td.item-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      color: var(--gold);
+      width: 40px;
+      padding-top: 13px;
+    }
+
+    td.item-amount { text-align: right; font-weight: 600; color: var(--navy); white-space: nowrap; }
+
+    .d-main { font-weight: 500; color: var(--warm-black); font-size: 12.5px; }
+    .d-sub  { font-size: 10.5px; color: #AEA49A; margin-top: 3px; line-height: 1.55; }
+
+    .sub-row { background: var(--cream-dark); }
+    .sub-row td { padding: 10px 14px !important; border-top: 1px solid var(--border) !important; }
+    .sub-row td:first-child { padding-left: 0 !important; }
+    .sub-label { font-size: 8.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #AEA49A; }
+    .sub-amt { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--gold-dark); text-align: right; }
+
+    .elec-banner {
+      background: var(--gold-pale);
+      border: 1px solid #DFC98A;
+      padding: 12px 16px;
+      margin-bottom: 14px;
+    }
+
+    .elec-banner p { font-size: 11.5px; color: #6B4E00; line-height: 1.65; }
+
+    .elec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+
+    .elec-card {
+      border: 1px solid var(--border);
+      background: var(--cream);
+      padding: 16px 18px 12px;
+      transition: border-color 0.2s;
+    }
+
+    .elec-card:hover { border-color: var(--gold); }
+
+    .elec-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .elec-opt-label { font-size: 8.5px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-dark); }
+    .elec-price { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: var(--navy); line-height: 1; }
+    .elec-pkg { font-weight: 600; font-size: 12px; color: var(--warm-black); margin-bottom: 4px; }
+    .elec-desc { font-size: 11px; color: #AEA49A; line-height: 1.55; }
+    .elec-select { display: flex; align-items: center; gap: 6px; margin-top: 10px; font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #AEA49A; }
+    .elec-circle { width: 13px; height: 13px; border-radius: 50%; border: 1.5px solid var(--border); }
+
+    .elec-materials {
+      background: var(--cream-dark);
+      border: 1px solid var(--border-lt);
+      padding: 11px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .elec-materials p { font-size: 11.5px; color: var(--warm-gray); }
+    .elec-materials p strong { color: var(--warm-black); font-weight: 600; }
+    .elec-materials span { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 500; color: var(--navy); white-space: nowrap; }
+
+    .summary { background: var(--navy); padding: 40px 52px; }
+
+    .sum-eyebrow {
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .sum-rows { margin-bottom: 24px; }
+
+    .sum-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .sum-row:last-child { border-bottom: none; }
+    .sum-lbl { font-size: 9.5px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.38); }
+    .sum-val { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 400; color: rgba(255,255,255,0.8); }
+
+    .sum-divider { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 4px 0 28px; }
+    .sum-divider-line { flex: 1; height: 1px; background: rgba(201,168,76,0.3); }
+    .sum-divider-diamond { width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); }
+
+    .sum-total { text-align: center; }
+
+    .sum-total-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 10px;
+    }
+
+    .sum-total-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      font-weight: 300;
+      color: var(--gold);
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .sum-total-note { font-size: 10px; color: rgba(255,255,255,0.25); line-height: 1.7; }
+
+    .notes-head { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+    .notes-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--navy); letter-spacing: 1.5px; text-transform: uppercase; white-space: nowrap; }
+    .notes-rule { flex: 1; height: 1px; background: var(--border-lt); }
+
+    .notes-list { list-style: none; }
+
+    .notes-list li {
+      display: flex;
+      gap: 14px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border-lt);
+      font-size: 11.5px;
+      color: var(--warm-gray);
+      line-height: 1.65;
+    }
+
+    .notes-list li:last-child { border-bottom: none; }
+
+    .notes-list li::before { content: '◆'; color: var(--gold); font-size: 6px; flex-shrink: 0; margin-top: 6px; }
+    .notes-list li strong { color: var(--navy); font-weight: 600; }
+
+    .pay-intro { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--navy); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+    .pay-rule { height: 1px; background: var(--border-lt); margin-bottom: 22px; }
+
+    .pay-steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border-lt); border: 1px solid var(--border-lt); margin-bottom: 40px; }
+
+    .pay-step { background: var(--cream); padding: 26px 22px; text-align: center; }
+
+    .pay-num { font-family: 'Cormorant Garamond', serif; font-size: 11px; font-weight: 400; letter-spacing: 3px; color: var(--gold-dark); text-transform: uppercase; margin-bottom: 12px; }
+    .pay-pct { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300; color: var(--navy); line-height: 1; margin-bottom: 5px; }
+    .pay-lbl { font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #AEA49A; margin-bottom: 10px; }
+    .pay-rule-sm { width: 28px; height: 1px; background: var(--gold); margin: 0 auto 10px; }
+    .pay-amt { font-weight: 600; font-size: 12px; color: var(--gold-dark); margin-bottom: 5px; }
+    .pay-desc { font-size: 10.5px; color: #AEA49A; line-height: 1.6; }
+
+    .sig-intro { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--navy); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+    .sig-rule { height: 1px; background: var(--border-lt); margin-bottom: 24px; }
+
+    .sig-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border-lt); border: 1px solid var(--border-lt); }
+
+    .sig-cell { background: var(--cream); padding: 26px 26px 22px; }
+    .sig-cell + .sig-cell { border-left: 1px solid var(--border-lt); }
+
+    .sig-cell-tag { font-size: 8.5px; font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 7px; }
+    .sig-cell-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: var(--navy); margin-bottom: 2px; }
+    .sig-cell-role { font-size: 11px; color: #AEA49A; margin-bottom: 26px; }
+    .sig-line-area { height: 44px; border-bottom: 1px solid var(--border); margin-bottom: 5px; }
+    .sig-line-cap { font-size: 9.5px; color: #AEA49A; }
+
+    .sig-elec { margin-top: 14px; padding-top: 13px; border-top: 1px solid var(--border-lt); }
+    .sig-elec-label { font-size: 8.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #AEA49A; margin-bottom: 9px; }
+    .sig-elec-opts { display: flex; gap: 7px; }
+
+    .sig-opt {
+      border: 1px solid var(--border);
+      padding: 5px 13px;
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--warm-gray);
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .sig-opt:hover { border-color: var(--gold); color: var(--gold-dark); background: var(--gold-pale); }
+
+    @media print {
+      body { background: white; padding: 0; }
+
+      .page {
+        box-shadow: none;
+        margin: 0;
+        min-height: auto;
+        page-break-after: always;
+      }
+
+      .page:last-child { page-break-after: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <div class="hdr-full">
+      <img src="sbr-logo.png" alt="Seattle Bathroom Remodeling LLC" style="height:52px;margin-bottom:18px;display:block;margin-left:auto;margin-right:auto;"/>
+      <div class="hdr-eyebrow">Licensed &nbsp;·&nbsp; Insured &nbsp;·&nbsp; WA State Contractor</div>
+      <div class="hdr-rule">
+        <div class="hdr-rule-line"></div>
+        <div class="hdr-rule-diamond"></div>
+        <div class="hdr-rule-line"></div>
+      </div>
+      <div class="hdr-tagline">(425) 426-2350 &nbsp;·&nbsp; Snohomish County &amp; Greater Seattle</div>
+    </div>
+
+    <div class="hdr-strip">
+      <div class="hdr-strip-item">
+        <div class="hdr-strip-label">Estimate No.</div>
+        <div class="hdr-strip-val">SBR-2026-SB001</div>
+      </div>
+      <div class="hdr-strip-sep"></div>
+      <div class="hdr-strip-item">
+        <div class="hdr-strip-label">Date Issued</div>
+        <div class="hdr-strip-val">April 10, 2026</div>
+      </div>
+      <div class="hdr-strip-sep"></div>
+      <div class="hdr-strip-item">
+        <div class="hdr-strip-label">Valid Through</div>
+        <div class="hdr-strip-val">May 10, 2026</div>
+      </div>
+      <div class="hdr-strip-sep"></div>
+      <div class="hdr-strip-item">
+        <div class="hdr-strip-label">Status</div>
+        <div class="hdr-strip-val">Pending Acceptance</div>
+      </div>
+    </div>
+
+    <div class="page-content">
+
+      <div class="client-row">
+        <div class="client-cell">
+          <div class="client-cell-label">Prepared For</div>
+          <div class="client-cell-name">Butler Neil V &amp; Sarah Bowers</div>
+          <p>6620 196th St SE<br/>Snohomish, WA 98296</p>
+        </div>
+        <div class="client-cell">
+          <div class="client-cell-label">Project</div>
+          <div class="client-cell-name">Full Bathroom Remodel</div>
+          <p>Walk-In Bathtub Installation<br/>
+          <em>Ella's Bubbles Royal · 31.5" × 52" × 35" · Inward Swing Door</em></p>
+        </div>
+      </div>
+
+      <div class="notice">
+        <div class="notice-mark">◆</div>
+        <p>
+          <strong>Labor &amp; materials estimate only.</strong> Walk-in tub unit cost is not included — priced separately or client-supplied.
+          Final pricing is subject to on-site verification of existing plumbing, electrical, and bathroom conditions.
+          This estimate is valid for <strong>30 days</strong> from date of issue.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="sec-head">
+          <div class="sec-num">01</div>
+          <div class="sec-title-wrap">
+            <div class="sec-title">Demolition &amp; Site Preparation</div>
+          </div>
+        </div>
+        <table>
+          <thead><tr><th>#</th><th>Description</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="item-num">1.1</td>
+              <td><div class="d-main">Remove existing bathtub / shower unit</div></td>
+              <td class="item-amount">$350</td>
+            </tr>
+            <tr>
+              <td class="item-num">1.2</td>
+              <td><div class="d-main">Remove existing floor covering</div></td>
+              <td class="item-amount">$200</td>
+            </tr>
+            <tr>
+              <td class="item-num">1.3</td>
+              <td><div class="d-main">Remove existing vanity, toilet &amp; fixtures</div></td>
+              <td class="item-amount">$150</td>
+            </tr>
+            <tr>
+              <td class="item-num">1.4</td>
+              <td><div class="d-main">Debris removal &amp; haul-away</div></td>
+              <td class="item-amount">$300</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr class="sub-row">
+              <td></td>
+              <td><span class="sub-label">Section 01 Subtotal</span></td>
+              <td class="sub-amt">$1,000</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+    </div>
+
+    <div class="page-footer">
+      <div class="page-footer-left">Seattle Bathroom Remodeling LLC &nbsp;·&nbsp; (425) 426-2350</div>
+      <div class="page-footer-center">Estimate #SBR-2026-SB001</div>
+      <div class="page-footer-right">Page 1 of 4</div>
+    </div>
+  </div>
+
+
+  <div class="page">
+
+    <div class="hdr-running">
+      <img src="sbr-logo.png" alt="SBR" style="height:22px;display:block;"/>
+      <div class="hdr-running-meta">Estimate #SBR-2026-SB001 &nbsp;·&nbsp; Sarah Bowers</div>
+    </div>
+    <div class="hdr-running-rule"></div>
+
+    <div class="page-content">
+
+      <div class="section">
+        <div class="sec-head">
+          <div class="sec-num">02</div>
+          <div class="sec-title-wrap">
+            <div class="sec-title">Walk-In Bathtub Installation</div>
+            <div class="sec-sub">Labor &amp; Installation Materials · Tub Unit Not Included</div>
+          </div>
+        </div>
+        <table>
+          <thead><tr><th>#</th><th>Description</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="item-num">2.1</td>
+              <td>
+                <div class="d-main">Tub placement, leveling &amp; securing</div>
+                <div class="d-sub">Position unit, adjust leveling legs, confirm door swing clearance, anchor to wall</div>
+              </td>
+              <td class="item-amount">$350</td>
+            </tr>
+            <tr>
+              <td class="item-num">2.2</td>
+              <td>
+                <div class="d-main">Plumbing rough-in &amp; connections</div>
+                <div class="d-sub">3/4" hot &amp; cold supply adaptation, dual 2" drain to existing stack, shut-off valves, pressure test</div>
+              </td>
+              <td class="item-amount">$1,200</td>
+            </tr>
+            <tr>
+              <td class="item-num">2.3</td>
+              <td>
+                <div class="d-main">Faucet &amp; hand shower installation</div>
+                <div class="d-sub">Ella 5-piece fast-fill faucet per manufacturer specs, braided supply lines, flow test</div>
+              </td>
+              <td class="item-amount">$250</td>
+            </tr>
+            <tr>
+              <td class="item-num">2.4</td>
+              <td>
+                <div class="d-main">Tub surround tile — 3 walls (~60 sq ft)</div>
+                <div class="d-sub">Cement backer board, waterproofing membrane, porcelain tile, grout &amp; caulk — labor + materials</div>
+              </td>
+              <td class="item-amount">$1,800</td>
+            </tr>
+            <tr>
+              <td class="item-num">2.5</td>
+              <td>
+                <div class="d-main">Rough plumbing materials</div>
+                <div class="d-sub">PVC / PEX pipe, fittings, 2" T-type drain adapter, elbows, connectors</div>
+              </td>
+              <td class="item-amount">$250</td>
+            </tr>
+            <tr>
+              <td class="item-num">2.6</td>
+              <td>
+                <div class="d-main">Final seal, caulk &amp; inspection</div>
+                <div class="d-sub">Silicone at all tub-to-wall transitions, door seal check, full leak test, cleanup</div>
+              </td>
+              <td class="item-amount">$200</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr class="sub-row">
+              <td></td>
+              <td><span class="sub-label">Section 02 Subtotal</span></td>
+              <td class="sub-amt">$4,050</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="sec-head">
+          <div class="sec-num" style="color:var(--gold-dark);">02E</div>
+          <div class="sec-title-wrap">
+            <div class="sec-title">Electrical — Select One Option</div>
+            <div class="sec-sub">Scope varies by therapy package · Dedicated GFCI circuit required</div>
+          </div>
+        </div>
+        <div class="elec-banner">
+          <p>Per Ella's Bubbles specifications, a <strong>dedicated GFCI-protected 110/120V circuit</strong> is required for all pump and heater systems.
+          Electrical scope and cost depend on the therapy package installed. <strong>Circle your selection on the signature page.</strong></p>
+        </div>
+        <div class="elec-grid">
+          <div class="elec-card">
+            <div class="elec-top">
+              <span class="elec-opt-label">Option E-1</span>
+              <span class="elec-price">$0</span>
+            </div>
+            <div class="elec-pkg">Soaking Only</div>
+            <div class="elec-desc">No pumps — no dedicated circuit required. Standard outlet sufficient. No electrical work needed.</div>
+            <div class="elec-select"><div class="elec-circle"></div> Select this option</div>
+          </div>
+          <div class="elec-card">
+            <div class="elec-top">
+              <span class="elec-opt-label">Option E-2</span>
+              <span class="elec-price">$500</span>
+            </div>
+            <div class="elec-pkg">Hydro or Air — Single Pump</div>
+            <div class="elec-desc">One dedicated GFCI circuit (20A, 110/120V) run from panel. Covers hydro pump (5–7A) or air pump (4.5A).</div>
+            <div class="elec-select"><div class="elec-circle"></div> Select this option</div>
+          </div>
+          <div class="elec-card">
+            <div class="elec-top">
+              <span class="elec-opt-label">Option E-3</span>
+              <span class="elec-price">$750</span>
+            </div>
+            <div class="elec-pkg">Hydro + Air — Dual Pump</div>
+            <div class="elec-desc">Two dedicated GFCI circuits or one high-capacity circuit. Combined draw ~12–14A plus in-line water heater (6A).</div>
+            <div class="elec-select"><div class="elec-circle"></div> Select this option</div>
+          </div>
+          <div class="elec-card">
+            <div class="elec-top">
+              <span class="elec-opt-label">Option E-4</span>
+              <span class="elec-price">$950</span>
+            </div>
+            <div class="elec-pkg">Full Therapy — Hydro + Air + Microbubble</div>
+            <div class="elec-desc">Two dedicated GFCI circuits required. Total draw ~25A+ including all pumps and in-line heater. Panel availability confirmed on-site.</div>
+            <div class="elec-select"><div class="elec-circle"></div> Select this option</div>
+          </div>
+        </div>
+        <div class="elec-materials">
+          <p><strong>Rough electrical materials</strong> included — GFCI breaker, wire / NM cable, electrical box &amp; outlet, sized per selected package</p>
+          <span>$200 – $350</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="page-footer">
+      <div class="page-footer-left">Seattle Bathroom Remodeling LLC &nbsp;·&nbsp; (425) 426-2350</div>
+      <div class="page-footer-center">Estimate #SBR-2026-SB001</div>
+      <div class="page-footer-right">Page 2 of 4</div>
+    </div>
+  </div>
+
+
+  <div class="page">
+
+    <div class="hdr-running">
+      <img src="sbr-logo.png" alt="SBR" style="height:22px;display:block;"/>
+      <div class="hdr-running-meta">Estimate #SBR-2026-SB001 &nbsp;·&nbsp; Sarah Bowers</div>
+    </div>
+    <div class="hdr-running-rule"></div>
+
+    <div class="page-content">
+
+      <div class="section">
+        <div class="sec-head">
+          <div class="sec-num">03</div>
+          <div class="sec-title-wrap">
+            <div class="sec-title">Full Bathroom Remodel</div>
+            <div class="sec-sub">Labor &amp; Mid-Range Materials</div>
+          </div>
+        </div>
+        <table>
+          <thead><tr><th>#</th><th>Description</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="item-num">3.1</td>
+              <td>
+                <div class="d-main">Floor tile — porcelain, ~60 sq ft</div>
+                <div class="d-sub">Cement board substrate, mortar, porcelain tile, grout — labor + materials</div>
+              </td>
+              <td class="item-amount">$1,200</td>
+            </tr>
+            <tr>
+              <td class="item-num">3.2</td>
+              <td>
+                <div class="d-main">Toilet — elongated, comfort height (ADA-compliant)</div>
+                <div class="d-sub">Unit + installation; wax ring, bolts, supply line included</div>
+              </td>
+              <td class="item-amount">$650</td>
+            </tr>
+            <tr>
+              <td class="item-num">3.3</td>
+              <td>
+                <div class="d-main">Vanity with sink — 36", soft-close doors &amp; drawers</div>
+                <div class="d-sub">Unit + installation; undermount sink included</div>
+              </td>
+              <td class="item-amount">$1,200</td>
+            </tr>
+            <tr>
+              <td class="item-num">3.4</td>
+              <td><div class="d-main">Vanity faucet, supply lines &amp; drain assembly</div></td>
+              <td class="item-amount">$250</td>
+            </tr>
+            <tr>
+              <td class="item-num">3.5</td>
+              <td><div class="d-main">Mirror / medicine cabinet</div></td>
+              <td class="item-amount">$350</td>
+            </tr>
+            <tr>
+              <td class="item-num">3.6</td>
+              <td>
+                <div class="d-main">Vanity light bar fixture</div>
+                <div class="d-sub">Fixture + installation; existing wiring assumed adequate</div>
+              </td>
+              <td class="item-amount">$300</td>
+            </tr>
+            <tr>
+              <td class="item-num">3.7</td>
+              <td><div class="d-main">Exhaust fan with integrated light</div></td>
+              <td class="item-amount">$350</td>
+            </tr>
+            <tr>
+              <td class="item-num">3.8</td>
+              <td>
+                <div class="d-main">Plumbing rough-in — vanity &amp; toilet</div>
+                <div class="d-sub">Shut-off valves, supply lines, P-trap, drain connections</div>
+              </td>
+              <td class="item-amount">$400</td>
+            </tr>
+            <tr>
+              <td class="item-num">3.9</td>
+              <td><div class="d-main">Paint — walls &amp; ceiling, 2 coats, moisture-resistant</div></td>
+              <td class="item-amount">$500</td>
+            </tr>
+            <tr>
+              <td class="item-num">3.10</td>
+              <td><div class="d-main">Accessories — towel bars (×2), toilet paper holder, robe hook</div></td>
+              <td class="item-amount">$200</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr class="sub-row">
+              <td></td>
+              <td><span class="sub-label">Section 03 Subtotal</span></td>
+              <td class="sub-amt">$5,400</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="section">
+        <div class="sec-head">
+          <div class="sec-num">04</div>
+          <div class="sec-title-wrap">
+            <div class="sec-title">Permits &amp; Miscellaneous Materials</div>
+          </div>
+        </div>
+        <table>
+          <thead><tr><th>#</th><th>Description</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="item-num">4.1</td>
+              <td><div class="d-main">Building &amp; plumbing permits — Snohomish County</div></td>
+              <td class="item-amount">$450</td>
+            </tr>
+            <tr>
+              <td class="item-num">4.2</td>
+              <td><div class="d-main">Waterproofing membrane, drywall patching, fasteners</div></td>
+              <td class="item-amount">$300</td>
+            </tr>
+            <tr>
+              <td class="item-num">4.3</td>
+              <td><div class="d-main">Grout, caulk, silicone sealant, adhesive &amp; misc. consumables</div></td>
+              <td class="item-amount">$200</td>
+            </tr>
+            <tr>
+              <td class="item-num">4.4</td>
+              <td>
+                <div class="d-main">Contingency — unforeseen conditions (10%)</div>
+                <div class="d-sub">Unused portion returned or credited to client upon project completion</div>
+              </td>
+              <td class="item-amount">~$1,100 – $1,300</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr class="sub-row">
+              <td></td>
+              <td><span class="sub-label">Section 04 Subtotal</span></td>
+              <td class="sub-amt">~$2,050</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+    </div>
+
+    <div class="page-footer">
+      <div class="page-footer-left">Seattle Bathroom Remodeling LLC &nbsp;·&nbsp; (425) 426-2350</div>
+      <div class="page-footer-center">Estimate #SBR-2026-SB001</div>
+      <div class="page-footer-right">Page 3 of 4</div>
+    </div>
+  </div>
+
+
+  <div class="page">
+
+    <div class="hdr-running">
+      <img src="sbr-logo.png" alt="SBR" style="height:22px;display:block;"/>
+      <div class="hdr-running-meta">Estimate #SBR-2026-SB001 &nbsp;·&nbsp; Sarah Bowers</div>
+    </div>
+    <div class="hdr-running-rule"></div>
+
+    <div style="padding: 32px 60px 0;">
+      <div class="summary">
+        <div class="sum-eyebrow">◆ &nbsp; Total Estimate Summary &nbsp; ◆</div>
+        <div class="sum-rows">
+          <div class="sum-row">
+            <span class="sum-lbl">01 · Demolition &amp; Site Prep</span>
+            <span class="sum-val">$1,000</span>
+          </div>
+          <div class="sum-row">
+            <span class="sum-lbl">02 · Walk-In Tub Installation</span>
+            <span class="sum-val">$4,050</span>
+          </div>
+          <div class="sum-row">
+            <span class="sum-lbl">02E · Electrical (by selected option)</span>
+            <span class="sum-val">$0 – $950</span>
+          </div>
+          <div class="sum-row">
+            <span class="sum-lbl">03 · Full Bathroom Remodel</span>
+            <span class="sum-val">$5,400</span>
+          </div>
+          <div class="sum-row">
+            <span class="sum-lbl">04 · Permits &amp; Miscellaneous</span>
+            <span class="sum-val">~$2,050</span>
+          </div>
+        </div>
+        <div class="sum-divider">
+          <div class="sum-divider-line"></div>
+          <div class="sum-divider-diamond"></div>
+          <div class="sum-divider-line"></div>
+        </div>
+        <div class="sum-total">
+          <div class="sum-total-label">Total Estimate · Labor &amp; Materials</div>
+          <div class="sum-total-amount">$12,500 – $13,450</div>
+          <div class="sum-total-note">
+            Tub unit cost not included &nbsp;·&nbsp; Range reflects electrical option selected<br/>
+            Premium finish upgrades available upon request &nbsp;·&nbsp; Quoted separately
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-content" style="padding-top: 32px;">
+
+      <div class="section">
+        <div class="notes-head">
+          <div class="notes-title">Notes &amp; Conditions</div>
+          <div class="notes-rule"></div>
+        </div>
+        <ul class="notes-list">
+          <li><strong>Tub unit excluded:</strong> Client supplies or separately procures the Ella Royal Walk-In Tub. S.B.R. LLC can assist with sourcing upon request.</li>
+          <li><strong>Site verification required:</strong> Final pricing confirmed after on-site inspection of existing plumbing, electrical panel, and bathroom dimensions.</li>
+          <li><strong>Water heater capacity:</strong> The Ella Royal holds up to 100 gallons. Existing water heater adequacy to be confirmed — upgrade quoted separately if needed.</li>
+          <li><strong>Tub footprint:</strong> 31.5" × 52" × 35" with inward-swing door. Entry clearance in existing bathroom must be verified prior to installation.</li>
+          <li><strong>Scope exclusions:</strong> Structural modifications, subfloor replacement, mold remediation, and drywall repair beyond standard patching are not included.</li>
+          <li><strong>Code &amp; permits:</strong> All work performed to Washington State building code. Permits pulled by S.B.R. LLC.</li>
+          <li><strong>Labor warranty:</strong> 1-year warranty on all work by S.B.R. LLC. Ella's Bubbles lifetime limited warranty applies to tub unit separately.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="pay-intro">Payment Terms</div>
+        <div class="pay-rule"></div>
+        <div class="pay-steps">
+          <div class="pay-step">
+            <div class="pay-num">Step One</div>
+            <div class="pay-pct" style="font-size:32px;">$500</div>
+            <div class="pay-lbl">Booking Deposit · Upon Signing</div>
+            <div class="pay-rule-sm"></div>
+            <div class="pay-desc">Secures your project start date and locks in materials pricing</div>
+          </div>
+          <div class="pay-step" style="border-left:1px solid var(--border-lt);border-right:1px solid var(--border-lt);">
+            <div class="pay-num">Step Two</div>
+            <div class="pay-pct">50%</div>
+            <div class="pay-lbl">Milestone · After Demolition</div>
+            <div class="pay-rule-sm"></div>
+            <div class="pay-amt">~$6,000 – $6,475</div>
+            <div class="pay-desc">Due upon completion of demolition &amp; site prep</div>
+          </div>
+          <div class="pay-step">
+            <div class="pay-num">Step Three</div>
+            <div class="pay-lbl" style="margin-top:8px;">Balance · Project Completion</div>
+            <div class="pay-rule-sm"></div>
+            <div class="pay-amt" style="margin-top:4px;">Remaining balance</div>
+            <div class="pay-desc">Due upon client walkthrough &amp; final sign-off</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sig-intro">Acceptance &amp; Authorization</div>
+        <div class="sig-rule"></div>
+        <div class="sig-row">
+          <div class="sig-cell">
+            <div class="sig-cell-tag">Authorized By</div>
+            <div class="sig-cell-name">Seattle Bathroom Remodeling LLC</div>
+            <div class="sig-cell-role">(425) 426-2350 · Licensed &amp; Insured</div>
+            <div class="sig-line-area"></div>
+            <div class="sig-line-cap">Authorized Signature &amp; Date</div>
+          </div>
+          <div class="sig-cell">
+            <div class="sig-cell-tag">Client Acceptance</div>
+            <div class="sig-cell-name">Butler Neil V &amp; Sarah Bowers</div>
+            <div class="sig-cell-role">6620 196th St SE · Snohomish, WA 98296</div>
+            <div class="sig-line-area"></div>
+            <div class="sig-line-cap">Client Signature &amp; Date</div>
+            <div class="sig-elec">
+              <div class="sig-elec-label">Electrical Option Selected</div>
+              <div class="sig-elec-opts">
+                <div class="sig-opt">E-1</div>
+                <div class="sig-opt">E-2</div>
+                <div class="sig-opt">E-3</div>
+                <div class="sig-opt">E-4</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="page-footer">
+      <div class="page-footer-left">Seattle Bathroom Remodeling LLC &nbsp;·&nbsp; (425) 426-2350</div>
+      <div class="page-footer-center">Estimate #SBR-2026-SB001</div>
+      <div class="page-footer-right">Page 4 of 4</div>
+    </div>
+  </div>
+
+</body>
+</html>
